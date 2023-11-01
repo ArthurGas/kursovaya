@@ -1,43 +1,49 @@
 #include "connection.h"
 #include "iostream"
 
-void Connection::connect(unsigned short port, int qlen)
+Connection::Connection(unsigned short port, int qlen):
+    sock(socket(AF_INET, SOCK_STREAM, 0)), // TCP сокет
+    serv_addr(new sockaddr_in), // пустая адресная структура сервера
+    client_addr(new sockaddr_in), // пустая адресная структура клиента
+    queue_len(qlen)
 {
-    std::unique_ptr <sockaddr_in> serv_addr(new sockaddr_in); // адресная структура сервера
+    //проверка создания сокета
+    if (sock == -1 )
+        throw std::system_error(errno, std::generic_category(), "socket error");
+    //заполнение адресной структуры сервера
     serv_addr->sin_family = AF_INET; // всегда так
     serv_addr->sin_port = htons(port); // конкретное значение
-    serv_addr->sin_addr.s_addr = inet_addr("127.0.0.1");//конкретное значение
+    serv_addr->sin_addr.s_addr = inet_addr("127.0.0.1"); //конкретное значение
+    //Привязка сокета к адресу сервера
+    int rc = bind(sock, reinterpret_cast<const sockaddr*>(serv_addr.get()), sizeof(sockaddr_in));
+    if (rc == -1 )
+        throw std::system_error(errno, std::generic_category(), "bind error");
 
-    int s = socket(AF_INET, SOCK_DGRAM, 0); // TCP
-    if ( s == -1 )
-        throw std::system_error(errno, std::generic_category());
-
-    int rc = bind(s, reinterpret_cast<const sockaddr*>(serv_addr.get()), sizeof(sockaddr_in));
-    if ( rc == -1 )
-        throw std::system_error(errno, std::generic_category());
-    rc = listen(s, qlen);
-    if (rc == -1)
-        throw std::system_error(errno, std::generic_category());
-    //socklen_t len = sizeof (sockaddr_in);
-    //sockaddr_in * client_addr = new sockaddr_in;
+}
+void Connection::connect(Interface & str)
+{
+    //режим ожидания соединения для сокета
+    if (listen(sock, queue_len)==-1)
+        throw std::system_error(errno, std::generic_category(), "listen error");
     socklen_t len = sizeof (sockaddr_in);
-    std::string ip_addr;
-    int work_sock;
+    //бесконесный цикл обработки входящих соединений
     while(1) {
-        std::unique_ptr <sockaddr_in> client_addr(new sockaddr_in); // пустая адресная структура клиента
-        int work_sock = accept(s, reinterpret_cast<sockaddr*>(client_addr.get()), &len);
-        std::string ip_addr(inet_ntoa(client_addr->sin_addr));
+        int work_sock = accept(sock, reinterpret_cast<sockaddr*>(client_addr.get()), &len);
         if (work_sock == -1) {
-            throw std::system_error(errno, std::generic_category());
+            throw std::system_error(errno, std::generic_category(), "accept error");
         }
-
+        std::string ip_addr(inet_ntoa(client_addr->sin_addr));
+        std::clog << "log: Соединение установлено с " << ip_addr <<std::endl;
+        try {
+            str(work_sock);	// serve the client
+        } catch (std::system_error &e) {
+            std::cerr << e.what() << "\nConnection with " << ip_addr << " aborted\n";
+        }
+        close(work_sock);
     }
-    std::clog << "log: Соединение установлено с " << ip_addr <<std::endl;
+    //char buf[1024];
+    //rc = recv(s, buf, sizeof buf,0);
 
-    char buf[1024];
-    rc = recv(s, buf, sizeof buf,0);
-
-    char msg[] = "What a hell\n";
-    rc = send(s, msg, sizeof msg, 0);
-    close(work_sock);
+    //char msg[] = "What a hell\n";
+    //rc = send(s, msg, sizeof msg, 0);
 }
