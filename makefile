@@ -3,7 +3,7 @@ CCLAGS=-c -Wall
 LIBFLAGS=-lboost_program_options
 SOURCES=$(wildcard *.cpp)
 OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=name
+EXECUTABLE=serv
 
 all: $(SOURCES) $(EXECUTABLE)
 	
