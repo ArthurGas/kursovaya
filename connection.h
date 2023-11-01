@@ -13,16 +13,27 @@
 #include <netinet/in.h>
 #include <errno.h>
 #include <memory.h>
+#include "interface.h"
+
+//const int def_qlen = 5;
+//const int def_port = 33333;
 
 class Connection
 {
 private:
-    int port;
-    int queue_len;
     int sock;
-    
+    std::unique_ptr <sockaddr_in> serv_addr;
+    std::unique_ptr <sockaddr_in> client_addr;
+    int queue_len;
+
 public:
-    void connect(unsigned short port, int qlen);
+    void connect(Interface & str);
     void disconnect();
     void wait();
+    Connection(unsigned short port, int qlen);
+    ~Connection()
+    {
+        close(sock);
+    }
+//	Connection()=delete;
 };
