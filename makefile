@@ -1,6 +1,6 @@
 CC=g++
-CCLAGS=-c -Wall
-LIBFLAGS=-lboost_program_options
+CCLAGS=-c -Wall #-std=c++17
+LIBFLAGS=-lboost_program_options -lcryptopp
 SOURCES=$(wildcard *.cpp)
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=serv
@@ -15,3 +15,4 @@ $(EXECUTABLE): $(OBJECTS)
 	
 clean:
 	rm -rf *.o $(Target)
+	rm -rf *.app $(Target)
