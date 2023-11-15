@@ -6,16 +6,17 @@ std::string Interface::data_set(std::string str)
 {
     return(data);
 }
+void Interface::operator()(int sock)
+{
+    work_sock = sock;
+}
 /*std::istream& operator >> (std::istream& cin, Interface& obj)
 {
     cin >> obj.data;
     return cin;
 }
 */
-std::string Interface::data_get() const
-{
-    return data;
-}
+/*
 std::string Interface::data_byte(std::string str)
 {
     return b_data;
@@ -24,14 +25,7 @@ std::string Interface::data_unbyte(std::string str)
 {
     return data;
 }
-void Interface::operator()(int sock)
-{
-    work_sock = sock;
-    int rc;
-    char msg[15];
-    rc = recv(work_sock, msg, sizeof msg, 0);
-    std::cout << msg;
-}
+ */
 /*
 void Interface::write_help()
 {
