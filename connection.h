@@ -15,7 +15,6 @@
 #include <memory.h>
 #include "calc.h"
 #include "auth.h"
-#include "interface.h"
 #include <ctime>
 //const int def_qlen = 5;
 //const int def_port = 33333;
@@ -27,12 +26,12 @@ private:
     int sock;
     std::unique_ptr <sockaddr_in> serv_addr;
     std::unique_ptr <sockaddr_in> client_addr;
-    int queue_len;
+    int queue_len=5;
 public:
-    void connect(Calculation& clc, Auth& ath, Interface& intr);
+    void connect(Calculation& clc, Auth& ath);
     void disconnect();
     void wait();
-    Connection(unsigned short port, int qlen);
+    Connection(unsigned short port);
     ~Connection()
     {
         close(sock);

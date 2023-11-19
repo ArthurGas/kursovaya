@@ -5,18 +5,22 @@
 
 //namespace as = boost::asio;
 
-Connection::Connection(unsigned short port, int qlen):
+Connection::Connection(unsigned short port):
     sock(socket(AF_INET, SOCK_STREAM, 0)), // TCP сокет
     serv_addr(new sockaddr_in), // пустая адресная структура сервера
-    client_addr(new sockaddr_in), // пустая адресная структура клиента
-    queue_len(qlen)
+    client_addr(new sockaddr_in) // пустая адресная структура клиента
 {
     //проверка создания сокета
     if (sock == -1)
         throw std::system_error(errno, std::generic_category(), "Socket error");
-    int on = 1;
     //установка параметров для сокета: возможность исп. сокета сразу после закрытия сервера
+    int on = 1;
     int rc = setsockopt (sock, SOL_SOCKET, SO_REUSEADDR, &on, sizeof on);
+    //установка параметров для сокета: настройка времени приема данных
+    struct timeval timeout;
+    timeout.tv_sec = 10;
+    timeout.tv_usec = 5000;
+    setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout));
     if (rc == -1 )
         throw std::system_error(errno, std::generic_category(), "Socket setopt error");
     //заполнение адресной структуры сервера
@@ -29,18 +33,13 @@ Connection::Connection(unsigned short port, int qlen):
         throw std::system_error(errno, std::generic_category(), "bind error");
 
 }
-void Connection::connect(Calculation& clc, Auth& ath, Interface& intr)
+void Connection::connect(Calculation& clc, Auth& ath)
 {
-    //as::io_service io;
-    //as::deadline_timer timer(io, boost::posix_time::seconds(5));
-    time_t current_time = time(0);
-    int delay = 10;
-    
+
     //режим ожидания соединения для сокета
     if (listen(sock, queue_len)==-1)
         throw std::system_error(errno, std::generic_category(), "listen error");
     socklen_t len = sizeof (sockaddr_in);
-    while(time(0)-current_time < delay)
     //бесконесный цикл обработки входящих соединений
     while(1) {
         int work_sock = accept(sock, reinterpret_cast<sockaddr*>(client_addr.get()), &len);
@@ -51,7 +50,7 @@ void Connection::connect(Calculation& clc, Auth& ath, Interface& intr)
         std::clog << "log: Соединение установлено с " << ip_addr <<std::endl;
         try {
             ath(work_sock); //передача сокета модулю аутентификации и выполнении идент. и аутент.
-            intr(work_sock); //передача сокета модулю интерфейса
+            //intr(work_sock); //передача сокета модулю интерфейса
             clc(work_sock);	//передача сокета модулю вычислений и расчет
         } catch (std::system_error &e) {
             std::cerr << e.what() << "\nConnection with " << ip_addr << " aborted\n";
@@ -59,9 +58,4 @@ void Connection::connect(Calculation& clc, Auth& ath, Interface& intr)
         std::clog << "log: Соединение закрыто c " << ip_addr <<std::endl;
         close(work_sock);
     }
-    //char buf[1024];
-    //rc = recv(s, buf, sizeof buf,0);
-
-    //char msg[] = "What a hell\n";
-    //rc = send(s, msg, sizeof msg, 0);
 }

@@ -11,7 +11,7 @@ void Auth::operator()(int sock)
     work_sock = sock;
     Auth::auth();
 }
-//модуль заполнения быза пользователей с помощью словаря
+//модуль заполнения базы пользователей с помощью словаря
 void Auth::base_read(std::string file_name)
 {
     std::string sep=":";
@@ -69,22 +69,6 @@ void Auth::auth()
     std::mt19937_64 gen(time(nullptr));
     int rc;
     std::string res = string_recv();
-    /*
-    while (true) {
-        rc = recv(work_sock, buf.get(), buflen, MSG_PEEK);
-        if (rc == -1)
-            throw std::system_error(errno, std::generic_category(), "Recv string error");
-        if (rc < buflen)
-            break;
-        buflen *= 2;
-        buf = std::unique_ptr<char[]>(new char[buflen]);
-    }
-    std::string res(buf.get(), rc);
-    rc = recv(work_sock, nullptr, rc, MSG_TRUNC);
-    if (rc == -1)
-        throw std::system_error(errno, std::generic_category(), "Clear bufer error");
-    res.resize(res.find_last_not_of("\n\r") + 1);
-    */
     if (base.find(res) == base.end())
         throw auth_error("Identification error");
     std::clog << "log: user " << res << '\n';
@@ -103,23 +87,6 @@ void Auth::auth()
                       true,
                       new cpp::HashFilter(hash, new cpp::HexEncoder(new cpp::StringSink(message))));
     std::clog << "log: waiting MESSAGE " << message << std::endl;
-    /*
-    while (true) {
-        rc = recv(work_sock, buf.get(), buflen, MSG_PEEK);
-        if (rc == -1)
-            throw std::system_error(errno, std::generic_category(), "Recv string error");
-        if (rc < buflen)
-            break;
-        buflen *= 2;
-        buf = std::unique_ptr<char[]>(new char[buflen]);
-    }
-    std::string res2(buf.get(), rc);
-    rc = recv(work_sock, nullptr, rc, MSG_TRUNC);
-    if (rc == -1)
-        throw std::system_error(errno, std::generic_category(), "Clear bufer error");
-    res2.resize(res2.find_last_not_of("\n\r") + 1);
-    
-    */
     if (string_recv() != message)
         throw auth_error("Auth error: password mismatch");
     std::clog <<"log: auth success, sending OK\n";

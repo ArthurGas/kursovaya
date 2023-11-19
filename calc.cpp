@@ -10,7 +10,7 @@ float Calculation::overflow(float res)
     if(res==INFINITY)
         return(FLT_MAX);
     else if(res==-INFINITY)
-        return(FLT_MAX);
+        return(-FLT_MAX);
     else
         return res;
 }

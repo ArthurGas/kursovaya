@@ -17,7 +17,7 @@
 #include <limits>
 #include "interface.h"
 
-class Calculation: private Interface
+class Calculation
 {
 private:
     float result=1.0;
