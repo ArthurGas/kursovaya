@@ -1,39 +1,28 @@
 #pragma once
 #include <string>
 #include <iostream>
-#include <fstream> 
-// C++
-#include <iostream>
-#include <memory>
-#include <random>
-#include <map>
-#include <fstream>
 
-// POSIX
-#include <unistd.h>
-#include <sys/socket.h>
-#include <sys/ioctl.h>
+#include <boost/program_options.hpp>
 
-//Crypto++
-#include <cryptopp/cryptlib.h>
-#include <cryptopp/hex.h>
-#include <cryptopp/files.h>
-#define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1
-#include <cryptopp/md5.h>
+namespace po = boost::program_options;
 
 class Interface
 {
 private:
-    int work_sock;
+    uint32_t port;
+    std::string base_file;
     std::string data;
     std::string b_data;
 public:
-    Interface(): work_sock(-1) 
+    Interface(): port(0), base_file(" ")
     {}
     //Interface() = delete;
     //friend std::istream& operator >> (std::istream& cin, Interface& obj);
     void operator()(int sock);
     std::string data_set(std::string str);
+    void set_options(int argscount, char *argvectors[]);
+    std::string get_basefile() const;
+    uint32_t get_port() const;
     //std::string string_recv();
     //std::string data_byte(std::string str);
     // std::string data_unbyte(std::string str);
