@@ -1,8 +1,9 @@
 #pragma once
 #include <string>
 #include <iostream>
-
+#include <ctime>
 #include <boost/program_options.hpp>
+#include <fstream>
 
 namespace po = boost::program_options;
 
@@ -13,6 +14,7 @@ private:
     std::string base_file;
     std::string data;
     std::string b_data;
+    std::string log_file;
 public:
     Interface(): port(0), base_file(" ")
     {}
@@ -23,9 +25,9 @@ public:
     void set_options(int argscount, char *argvectors[]);
     std::string get_basefile() const;
     uint32_t get_port() const;
-    //std::string string_recv();
+    std::string get_logfile() const;
     //std::string data_byte(std::string str);
     // std::string data_unbyte(std::string str);
     // void write_help();
-
+ 
 };

@@ -6,15 +6,8 @@
 #include <float.h>
 #include <sys/types.h>
 #include <sys/socket.h>
-#include <cmath>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <typeinfo>
 #include <memory>
 #include <system_error>
-#include <typeinfo>
-#include <limits>
 #include "interface.h"
 
 class Calculation

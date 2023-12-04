@@ -3,6 +3,7 @@
 struct {
     uint32_t p=33333;
     std::string b="base.txt";
+    std::string l="log.txt";
     bool p_not_set()
     {
         return(p==33333);
@@ -10,6 +11,10 @@ struct {
     bool b_not_set()
     {
         return(b=="base.txt");
+    }
+    bool l_not_set()
+    {
+        return(l=="log.txt");
     }
 } params;
 
@@ -22,6 +27,8 @@ void Interface::set_options(int argscount, char *argvectors[])
      "Set server port")
     ("base,b", po::value<std::string>(&params.b),
      "Set base filename")
+    ("log,l", po::value<std::string>(&params.l),
+     "Set log filename")
     ;
 // переменная для результатов парсинга
     po::variables_map vm;
@@ -31,10 +38,11 @@ void Interface::set_options(int argscount, char *argvectors[])
     po::notify(vm);
     std::cout << '\t' <<"CALCULATOR SERVER" << '\n';
 // выполнение варианта "Выдать справку"(запуск без параметров)
-    if( vm.count("help") || (params.p_not_set() && params.b_not_set()) ) {
+    if( vm.count("help") || (params.p_not_set() && params.b_not_set() && params.l_not_set()) ) {
         std::cout << desc << "\n";
         std::cout << "Program use default parameters" << "\n" << "Port: " << params.p << "\n";
         std::cout << "Base filename: " << params.b<< "\n";
+        std::cout << "Log filename: " << params.l<< "\n";
 // запуск с полностью или частично указанными параметрами
     } else {
         if(params.p_not_set())
@@ -45,17 +53,28 @@ void Interface::set_options(int argscount, char *argvectors[])
             std::cout << "Base filename(default): " << params.b<< "\n";
         else
             std::cout << "Base filename: " << params.b<< "\n";
-            
+        if(params.l_not_set())
+            std::cout << "Log filename(default): " << params.b<< "\n";
+        else
+            std::cout << "Log filename: " << params.b<< "\n";
+
     }
     port=params.p;
     base_file=params.b;
+    log_file=params.l;
 }
 
-std::string Interface::get_basefile() const{
+std::string Interface::get_basefile() const
+{
     return base_file;
 }
-uint32_t Interface::get_port() const{
+uint32_t Interface::get_port() const
+{
     return port;
+}
+std::string Interface::get_logfile() const
+{
+    return log_file;
 }
 /*std::istream& operator >> (std::istream& cin, Interface& obj)
 {

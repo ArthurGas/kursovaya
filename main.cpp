@@ -6,6 +6,9 @@
 #include "auth.h"
 #include "interface.h"
 #include "connection.h"
+#include "server_error.h"
+
+
 int main(int argc, char *argv[])
 {
     Interface i;
@@ -16,8 +19,17 @@ int main(int argc, char *argv[])
         Auth a; // объект класса аутентификации
         a.base_read(i.get_basefile());
         serv.connect(c, a); // передача объекту значения сокета
-    } catch (std::system_error &e) {
+        
+    }catch(log_error &e){
+        std::cerr<< e.what() << std::endl;
+    }
+    catch (std::system_error &e) {
         std::cerr << e.what() << std::endl;
+        write_log(i.get_logfile(), e.what());
+    }
+    catch(std::exception &e){
+        std::cerr<< e.what() << std::endl;
+        write_log(i.get_logfile(), e.what());
     }
     return 0 ;
 }

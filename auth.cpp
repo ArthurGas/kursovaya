@@ -20,8 +20,8 @@ void Auth::base_read(std::string file_name)
 
     std::ifstream file(file_name.c_str());
     if (file.is_open()) {
-        //if(!getline(file, buf))
-        //    throw std::system_error(errno, std::generic_category(), "Base file is empty");
+        if(file.peek() == std::ifstream::traits_type::eof())
+            throw std::length_error("Base file is empty");
         while(getline(file, buf)) {
             while (buf.find(" ") < buf.size()) {
                 buf.erase(buf.find(" "), 1);
@@ -36,7 +36,6 @@ void Auth::base_read(std::string file_name)
     else {
         throw std::system_error(errno, std::generic_category(), "Base read error");
     }
-
 }
 
 std::string Auth::string_recv()
@@ -63,8 +62,6 @@ std::string Auth::string_recv()
 
 void Auth::auth()
 {
-    // static constexpr std::string_view login = "user";
-    // static constexpr std::string_view password = "P@ssW0rd";
     namespace cpp = CryptoPP;
     std::mt19937_64 gen(time(nullptr));
     int rc;
@@ -92,5 +89,5 @@ void Auth::auth()
     std::clog <<"log: auth success, sending OK\n";
     rc = send(work_sock, "OK", 2, 0);
     if (rc == -1)
-        throw std::system_error(errno, std::generic_category(), "Send OK error");
+        throw std::system_error(errno, std::generic_category(), "Send ""OK"" error");
 }

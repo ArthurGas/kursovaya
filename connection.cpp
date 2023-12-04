@@ -16,10 +16,11 @@ Connection::Connection(unsigned short port):
     //установка параметров для сокета: возможность исп. сокета сразу после закрытия сервера
     int on = 1;
     int rc = setsockopt (sock, SOL_SOCKET, SO_REUSEADDR, &on, sizeof on);
-    //установка параметров для сокета: настройка времени приема данных
-    struct timeval timeout;
-    timeout.tv_sec = 10;
-    timeout.tv_usec = 5000;
+    //установка параметров для сокета: настройка таймаута для снятия блокировки
+
+    struct timeval timeout {
+        60, 0
+    };
     setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout));
     if (rc == -1 )
         throw std::system_error(errno, std::generic_category(), "Socket setopt error");
@@ -30,7 +31,7 @@ Connection::Connection(unsigned short port):
     //Привязка сокета к адресу сервера
     rc = bind(sock, reinterpret_cast<const sockaddr*>(serv_addr.get()), sizeof(sockaddr_in));
     if (rc == -1 )
-        throw std::system_error(errno, std::generic_category(), "bind error");
+        throw std::system_error(errno, std::generic_category(), "Bind error");
 
 }
 void Connection::connect(Calculation& clc, Auth& ath)
@@ -38,13 +39,13 @@ void Connection::connect(Calculation& clc, Auth& ath)
 
     //режим ожидания соединения для сокета
     if (listen(sock, queue_len)==-1)
-        throw std::system_error(errno, std::generic_category(), "listen error");
+        throw std::system_error(errno, std::generic_category(), "Listen error");
     socklen_t len = sizeof (sockaddr_in);
     //бесконесный цикл обработки входящих соединений
     while(1) {
         int work_sock = accept(sock, reinterpret_cast<sockaddr*>(client_addr.get()), &len);
         if (work_sock == -1) {
-            throw std::system_error(errno, std::generic_category(), "accept error");
+            throw std::system_error(errno, std::generic_category(), "Accept error");
         }
         std::string ip_addr(inet_ntoa(client_addr->sin_addr));
         std::clog << "log: Соединение установлено с " << ip_addr <<std::endl;
