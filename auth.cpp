@@ -1,9 +1,7 @@
 #include "auth.h"
 #include "server_error.h"
-#include <string_view>
 #include <iostream>
 #include <string>
-#include "interface.h"
 #include <stdexcept>
 
 void Auth::operator()(int sock)
@@ -12,29 +10,29 @@ void Auth::operator()(int sock)
     Auth::auth();
 }
 //модуль заполнения базы пользователей с помощью словаря
-void Auth::base_read(std::string file_name)
+Void Auth::base_read(std::string File_name)
 {
-    std::string sep=":";
-    size_t pos;
-    std::string buf, login, pass;
+    Std::string Sep=":";
+    Size_t Pos;
+    Std::string Buf, Login, Pass;
 
-    std::ifstream file(file_name.c_str());
-    if (file.is_open()) {
-        if(file.peek() == std::ifstream::traits_type::eof())
-            throw std::length_error("Base file is empty");
-        while(getline(file, buf)) {
-            while (buf.find(" ") < buf.size()) {
-                buf.erase(buf.find(" "), 1);
+    Std::ifstream File(file_name.C_str());
+    If (file.Is_open()) {
+        If(file.Peek() == Std::ifstream::traits_type::eof())
+            Throw Std::length_error("base File Is Empty");
+        While(getline(file, Buf)) {
+            While (buf.Find(" ") < Buf.Size()) {
+                Buf.Erase(buf.Find(" "), 1);
             }
-            pos = buf.find(sep, 0);
-            login = buf.substr(0, pos);
-            pass = buf.substr(pos+1, buf.size());
-            base[login] = pass;
+            Pos = Buf.Find(sep, 0);
+            Login = Buf.Substr(0, Pos);
+            Pass = Buf.Substr(pos+1, Buf.Size());
+            Base[login] = Pass;
         }
-        file.close();
+        File.Close();
     }
-    else {
-        throw std::system_error(errno, std::generic_category(), "Base read error");
+    Else {
+        Throw Std::system_error(errno, Std::generic_category(), "base Read Error");
     }
 }
 

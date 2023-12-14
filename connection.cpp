@@ -1,10 +1,5 @@
 #include "connection.h"
 
-//#include <boost/asio.hpp>
-//#include <boost/date_time/posix_time/posix_time.hpp>
-
-//namespace as = boost::asio;
-
 Connection::Connection(unsigned short port):
     sock(socket(AF_INET, SOCK_STREAM, 0)), // TCP сокет
     serv_addr(new sockaddr_in), // пустая адресная структура сервера
@@ -16,12 +11,14 @@ Connection::Connection(unsigned short port):
     //установка параметров для сокета: возможность исп. сокета сразу после закрытия сервера
     int on = 1;
     int rc = setsockopt (sock, SOL_SOCKET, SO_REUSEADDR, &on, sizeof on);
+    if (rc == -1 )
+        throw std::system_error(errno, std::generic_category(), "Socket setopt error");
     //установка параметров для сокета: настройка таймаута для снятия блокировки
 
     struct timeval timeout {
         60, 0
     };
-    setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout));
+    rc = setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout));
     if (rc == -1 )
         throw std::system_error(errno, std::generic_category(), "Socket setopt error");
     //заполнение адресной структуры сервера
