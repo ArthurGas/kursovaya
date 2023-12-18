@@ -1,10 +1,6 @@
-Sun Nov 26 13:49:34 2023: Accept error: Resource temporarily unavailable
-Sun Nov 26 14:53:19 2023: Accept error: Resource temporarily unavailable
-Mon Dec  4 10:02:52 2023
- - Accept error: Resource temporarily unavailable
-Mon Dec  4 10:16:13 2023
- - Accept error: Resource temporarily unavailable
-Mon Dec  4 13:32:27 2023
- - Accept error: Resource temporarily unavailable
-Sun Dec 10 20:55:50 2023
- - Accept error: Resource temporarily unavailable
+Sun Dec 17 14:42:03 2023 - Privet
+Sun Dec 17 14:46:26 2023 - 
+Sun Dec 17 15:49:26 2023 - Bind error: Address already in use
+Mon Dec 18 09:54:10 2023 - Bind error: Address already in use
+Mon Dec 18 09:55:45 2023 - Accept error: Resource temporarily unavailable
+Mon Dec 18 09:57:00 2023 - Accept error: Resource temporarily unavailable

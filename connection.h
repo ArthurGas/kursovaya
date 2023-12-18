@@ -18,11 +18,11 @@
 #include <ctime>
 //const int def_qlen = 5;
 //const int def_port = 33333;
- 
+
 class Connection
 {
 private:
-    
+
     int sock;
     std::unique_ptr <sockaddr_in> serv_addr;
     std::unique_ptr <sockaddr_in> client_addr;

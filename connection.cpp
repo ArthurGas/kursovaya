@@ -46,13 +46,8 @@ void Connection::connect(Calculation& clc, Auth& ath)
         }
         std::string ip_addr(inet_ntoa(client_addr->sin_addr));
         std::clog << "log: Соединение установлено с " << ip_addr <<std::endl;
-        try {
-            ath(work_sock); //передача сокета модулю аутентификации и выполнении идент. и аутент.
-            //intr(work_sock); //передача сокета модулю интерфейса
-            clc(work_sock);	//передача сокета модулю вычислений и расчет
-        } catch (std::system_error &e) {
-            std::cerr << e.what() << "\nConnection with " << ip_addr << " aborted\n";
-        }
+        ath(work_sock); //передача сокета модулю аутентификации и выполнении идент. и аутент.
+        clc(work_sock);	//передача сокета модулю вычислений и расчет
         std::clog << "log: Соединение закрыто c " << ip_addr <<std::endl;
         close(work_sock);
     }

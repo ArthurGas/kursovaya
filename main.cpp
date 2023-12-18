@@ -12,22 +12,20 @@
 int main(int argc, char *argv[])
 {
     Interface i;
-    i.set_options(argc, argv);
     try {
+        if(!i.set_options(argc, argv))
+        	return 0;
         Connection serv(i.get_port());
         Calculation c; // объект класса вычислений
         Auth a; // объект класса аутентификации
-        a.base_read(i.get_basefile());
+
+        std::map<std::string, std::string>bs=a.base_read(i.get_basefile());
+        a.set_base(bs);
         serv.connect(c, a); // передача объекту значения сокета
-        
-    }catch(log_error &e){
+
+    } catch(log_error &e) {
         std::cerr<< e.what() << std::endl;
-    }
-    catch (std::system_error &e) {
-        std::cerr << e.what() << std::endl;
-        write_log(i.get_logfile(), e.what());
-    }
-    catch(std::exception &e){
+    } catch(std::exception &e) {
         std::cerr<< e.what() << std::endl;
         write_log(i.get_logfile(), e.what());
     }

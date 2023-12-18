@@ -21,17 +21,17 @@
 class Auth
 {
 private:
-    int SALT;
     int work_sock;
-    std::map<std::string, std::string> base;
-    // User user;
+    std::map<std::string, std::string> base_cont;
+    bool id_check(std::string id, std::map<std::string, std::string> base_c);
+    bool pw_check(std::string pw_from_cl, std::string hashed_pw);
 public:
+    std::map<std::string, std::string> base_read(std::string file_name);
+    void set_base(std::map<std::string, std::string> base_c);
     Auth(): work_sock(-1) {}
     void operator()(int sock);
     void auth();
-    //ident();
     std::string string_recv();
-    void base_read(std::string file_name);
-    //hash();
-
+    std::string salt_gen();
+    std::string pw_hash(std::string salt, std::string password);
 };

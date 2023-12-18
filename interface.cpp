@@ -8,7 +8,7 @@ struct {
     {
         return(p==33333);
     }
-    bool b_not_set()
+    bool b_not_set() 
     {
         return(b=="base.txt");
     }
@@ -18,7 +18,7 @@ struct {
     }
 } params;
 
-void Interface::set_options(int argscount, char *argvectors[])
+bool Interface::set_options(int argscount, char *argvectors[])
 {
     po::options_description desc{"Options"};
     desc.add_options()
@@ -37,8 +37,13 @@ void Interface::set_options(int argscount, char *argvectors[])
 // присвоение значений по умолчанию
     po::notify(vm);
     std::cout << '\t' <<"CALCULATOR SERVER" << '\n';
+    //выполнение варианта "Выдать справку"
+   if (vm.count("help")){
+   		std::cout << desc << "\n";
+   		return false;
+   }
 // выполнение варианта "Выдать справку"(запуск без параметров)
-    if( vm.count("help") || (params.p_not_set() && params.b_not_set() && params.l_not_set()) ) {
+    if(params.p_not_set() && params.b_not_set() && params.l_not_set()) {
         std::cout << desc << "\n";
         std::cout << "Program use default parameters" << "\n" << "Port: " << params.p << "\n";
         std::cout << "Base filename: " << params.b<< "\n";
@@ -62,6 +67,7 @@ void Interface::set_options(int argscount, char *argvectors[])
     port=params.p;
     base_file=params.b;
     log_file=params.l;
+    return true;
 }
 
 std::string Interface::get_basefile() const
@@ -76,35 +82,3 @@ std::string Interface::get_logfile() const
 {
     return log_file;
 }
-/*std::istream& operator >> (std::istream& cin, Interface& obj)
-{
-    cin >> obj.data;
-    return cin;
-}
-*/
-/*
-std::string Interface::data_byte(std::string str)
-{
-    return b_data;
-}
-std::string Interface::data_unbyte(std::string str)
-{
-    return data;
-}
- */
-/*
-void Interface::write_help()
-{
-    std::fstream fs;
-    fs.open("/home/stud/Kursovaya/Code/readme.md");
-    if(!fs.is_open()) {
-        std::cout<<"Файл не открыт";
-    } else {
-        std::string line;
-        while (std::getline(fs, line)) {
-            std::cout << line << std::endl;
-        }
-    }
-    fs.close();
-}
- */
