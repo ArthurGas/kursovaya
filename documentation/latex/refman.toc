@@ -1,0 +1,73 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\babel@toc {russian}{}
+\contentsline {chapter}{\numberline {1}Иерархический список классов}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Иерархия классов}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Алфавитный указатель классов}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Классы}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Список файлов}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Файлы}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Классы}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Класс Auth}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Подробное описание}{8}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Методы}{8}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}auth()}{8}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}base\_read()}{8}{subsubsection.4.1.2.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.3}id\_check()}{9}{subsubsection.4.1.2.3}%
+\contentsline {subsubsection}{\numberline {4.1.2.4}operator()()}{9}{subsubsection.4.1.2.4}%
+\contentsline {subsubsection}{\numberline {4.1.2.5}pw\_hash()}{10}{subsubsection.4.1.2.5}%
+\contentsline {subsubsection}{\numberline {4.1.2.6}salt\_gen()}{10}{subsubsection.4.1.2.6}%
+\contentsline {subsubsection}{\numberline {4.1.2.7}string\_recv()}{10}{subsubsection.4.1.2.7}%
+\contentsline {section}{\numberline {4.2}Класс auth\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}error}{11}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Подробное описание}{12}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Класс Calculation}{12}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Подробное описание}{13}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Конструктор(ы)}{13}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}Calculation()}{13}{subsubsection.4.3.2.1}%
+\contentsline {subsection}{\numberline {4.3.3}Методы}{13}{subsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.3.1}calc()}{13}{subsubsection.4.3.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.3.2}multip()}{14}{subsubsection.4.3.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3.3}operator()()}{14}{subsubsection.4.3.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.3.4}overflow()}{15}{subsubsection.4.3.3.4}%
+\contentsline {section}{\numberline {4.4}Класс Connection}{15}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Подробное описание}{16}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Конструктор(ы)}{16}{subsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}Connection()}{16}{subsubsection.4.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}$\sim $Connection()}{16}{subsubsection.4.4.2.2}%
+\contentsline {subsection}{\numberline {4.4.3}Методы}{16}{subsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.3.1}connect()}{16}{subsubsection.4.4.3.1}%
+\contentsline {section}{\numberline {4.5}Класс Error}{17}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Методы}{17}{subsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.1.1}write\_log()}{17}{subsubsection.4.5.1.1}%
+\contentsline {section}{\numberline {4.6}Класс Interface}{18}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Подробное описание}{18}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Конструктор(ы)}{19}{subsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.1}Interface()}{19}{subsubsection.4.6.2.1}%
+\contentsline {subsection}{\numberline {4.6.3}Методы}{19}{subsection.4.6.3}%
+\contentsline {subsubsection}{\numberline {4.6.3.1}get\_basefile()}{19}{subsubsection.4.6.3.1}%
+\contentsline {subsubsection}{\numberline {4.6.3.2}get\_logfile()}{19}{subsubsection.4.6.3.2}%
+\contentsline {subsubsection}{\numberline {4.6.3.3}get\_port()}{20}{subsubsection.4.6.3.3}%
+\contentsline {subsubsection}{\numberline {4.6.3.4}set\_options()}{20}{subsubsection.4.6.3.4}%
+\contentsline {section}{\numberline {4.7}Класс log\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}error}{21}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Подробное описание}{21}{subsection.4.7.1}%
+\contentsline {chapter}{\numberline {5}Файлы}{23}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Файл auth.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{23}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Подробное описание}{23}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}Файл auth.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{24}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Подробное описание}{25}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.3}Файл calc.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{25}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Подробное описание}{25}{subsection.5.3.1}%
+\contentsline {section}{\numberline {5.4}Файл calc.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{26}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Подробное описание}{27}{subsection.5.4.1}%
+\contentsline {section}{\numberline {5.5}Файл connection.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{27}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Подробное описание}{27}{subsection.5.5.1}%
+\contentsline {section}{\numberline {5.6}Файл connection.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{28}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Подробное описание}{28}{subsection.5.6.1}%
+\contentsline {section}{\numberline {5.7}Файл interface.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{29}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Подробное описание}{30}{subsection.5.7.1}%
+\contentsline {section}{\numberline {5.8}Файл interface.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{30}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Подробное описание}{31}{subsection.5.8.1}%
+\contentsline {section}{\numberline {5.9}Файл server\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}error.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{32}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Подробное описание}{32}{subsection.5.9.1}%
+\contentsline {section}{\numberline {5.10}Файл server\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}error.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{33}{section.5.10}%
+\contentsline {subsection}{\numberline {5.10.1}Подробное описание}{33}{subsection.5.10.1}%
+\contentsline {chapter}{{\cyrillictext \CYRP \cyrr \cyre \cyrd \cyrm \cyre \cyrt \cyrn \cyrery \cyrishrt \ \cyru \cyrk \cyra \cyrz \cyra \cyrt \cyre \cyrl \cyrsftsn }}{35}{section*.39}%

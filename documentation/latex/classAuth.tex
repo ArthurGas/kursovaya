@@ -1,0 +1,200 @@
+\hypertarget{classAuth}{}\doxysection{Класс Auth}
+\label{classAuth}\index{Auth@{Auth}}
+
+
+Класс аутентификации пользователей  
+
+
+
+
+{\ttfamily \#include $<$auth.\+h$>$}
+
+\doxysubsection*{Закрытые члены}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classAuth_abcb4f3a0ab5d500af3919e9bdbbca287}{salt\+\_\+gen}} ()
+\begin{DoxyCompactList}\small\item\em Метод генерации значения SALT. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAuth_a9fc0a8da27f70d6e97ffec9053f16f3c}{pw\+\_\+hash}} (std\+::string salt, std\+::string password)
+\begin{DoxyCompactList}\small\item\em Метод хэширования пароля \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAuth_a5a263887851eabf19850e07255dc7e6c}{id\+\_\+check}} (std\+::string id, std\+::map$<$ std\+::string, std\+::string $>$ base\+\_\+c)
+\begin{DoxyCompactList}\small\item\em Метод проверки наличия в базе пользователей указанного ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAuth_ab263274f89b53a92633aab95a5068397}{operator()}} (int sock, \mbox{\hyperlink{classError}{Error}} \&er)
+\begin{DoxyCompactList}\small\item\em Перегрузка оператора () для класса аутентификации \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAuth_aaf426d2dd315e8ec61b058d3c43ef5b4}{auth}} (\mbox{\hyperlink{classError}{Error}} \&er)
+\begin{DoxyCompactList}\small\item\em Метод, проводящий аутентификацию пользователя \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAuth_ab13c7b5e79377e4fccfc93737943e720}{string\+\_\+recv}} (\mbox{\hyperlink{classError}{Error}} \&er)
+\begin{DoxyCompactList}\small\item\em Метод для получения строки от клиента \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classAuth_a3615ca41d9feab30a366acdccec52ee4}{base\+\_\+read}} (std\+::string file\+\_\+name,)
+\begin{DoxyCompactList}\small\item\em Метод чтения базы пользователей \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAuth_a1760bffa1bbcdcef40dd1418d8809977}\label{classAuth_a1760bffa1bbcdcef40dd1418d8809977}} 
+int \mbox{\hyperlink{classAuth_a1760bffa1bbcdcef40dd1418d8809977}{SALT}}
+\begin{DoxyCompactList}\small\item\em значение SALT для хэширования пароля \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAuth_a332dd8f9f1d0a3a7a006a16ef7bc0018}\label{classAuth_a332dd8f9f1d0a3a7a006a16ef7bc0018}} 
+int \mbox{\hyperlink{classAuth_a332dd8f9f1d0a3a7a006a16ef7bc0018}{work\+\_\+sock}}
+\begin{DoxyCompactList}\small\item\em переменная сокета \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAuth_a5dbabd0eb2549704cb8808fbb4a91dfd}\label{classAuth_a5dbabd0eb2549704cb8808fbb4a91dfd}} 
+std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classAuth_a5dbabd0eb2549704cb8808fbb4a91dfd}{base\+\_\+cont}}
+\begin{DoxyCompactList}\small\item\em ассоциативный массив id -\/ пароль \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс аутентификации пользователей 
+
+В классе используются функции для сетевого обмена данными. В конструкторе сокету присваивается значение -\/1, чтобы исключить использование сокета который не был получен от другого класса 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classAuth_aaf426d2dd315e8ec61b058d3c43ef5b4}\label{classAuth_aaf426d2dd315e8ec61b058d3c43ef5b4}} 
+\index{Auth@{Auth}!auth@{auth}}
+\index{auth@{auth}!Auth@{Auth}}
+\doxysubsubsection{\texorpdfstring{auth()}{auth()}}
+{\footnotesize\ttfamily void Auth\+::auth (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classError}{Error}} \&}]{er }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Метод, проводящий аутентификацию пользователя 
+
+Выполняет такие методы класса \mbox{\hyperlink{classAuth_a5a263887851eabf19850e07255dc7e6c}{id\+\_\+check()}}, \mbox{\hyperlink{classAuth_abcb4f3a0ab5d500af3919e9bdbbca287}{salt\+\_\+gen()}}, \mbox{\hyperlink{classAuth_a9fc0a8da27f70d6e97ffec9053f16f3c}{pw\+\_\+hash()}} и pw\+\_\+check(), а также принимает с помощью сетевых функций id и хэшированный пароль от пользователя, сам метод после идентификации отправляет клиету значение SALT. 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em er} & объект класса исключений для установки параметра критичности \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Предупреждения}
+Выполняется только с открытым соедиением 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Исключения}
+{\em system\+\_\+error,если} & произошла ошибка в сетевом взаимодействии \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classAuth_a3615ca41d9feab30a366acdccec52ee4}\label{classAuth_a3615ca41d9feab30a366acdccec52ee4}} 
+\index{Auth@{Auth}!base\_read@{base\_read}}
+\index{base\_read@{base\_read}!Auth@{Auth}}
+\doxysubsubsection{\texorpdfstring{base\_read()}{base\_read()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::string $>$ Auth\+::base\+\_\+read (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Метод чтения базы пользователей 
+
+Данные из файла с информацией о пользователях читаются в ассоциативный массив \char`\"{}\+ID-\/пароль\char`\"{} для дальнейшего использования 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em file\+\_\+name} & имя файла с базой пользователей \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Ассоциативный массив \char`\"{}\+ID-\/пароль\char`\"{} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em system\+\_\+error,если} & произошла ошибка открытия файла \\
+\hline
+{\em length\+\_\+error,если} & файл базы пустой \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classAuth_a5a263887851eabf19850e07255dc7e6c}\label{classAuth_a5a263887851eabf19850e07255dc7e6c}} 
+\index{Auth@{Auth}!id\_check@{id\_check}}
+\index{id\_check@{id\_check}!Auth@{Auth}}
+\doxysubsubsection{\texorpdfstring{id\_check()}{id\_check()}}
+{\footnotesize\ttfamily bool Auth\+::id\+\_\+check (\begin{DoxyParamCaption}\item[{std\+::string}]{id,  }\item[{std\+::map$<$ std\+::string, std\+::string $>$}]{base\+\_\+c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Метод проверки наличия в базе пользователей указанного ID. 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em id} & ID, введенный клиентом \\
+\hline
+\mbox{\texttt{ in}}  & {\em base\+\_\+c} & контейнер для хранения базы пользователей \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classauth__error}{auth\+\_\+error}},если} & идентификация не удалась \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Возвращает}
+Значение true, если идентификация прошла успешно 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAuth_ab263274f89b53a92633aab95a5068397}\label{classAuth_ab263274f89b53a92633aab95a5068397}} 
+\index{Auth@{Auth}!operator()@{operator()}}
+\index{operator()@{operator()}!Auth@{Auth}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily void Auth\+::operator() (\begin{DoxyParamCaption}\item[{int}]{sock,  }\item[{\mbox{\hyperlink{classError}{Error}} \&}]{er }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Перегрузка оператора () для класса аутентификации 
+
+Является \char`\"{}сеттером\char`\"{} для атрибута work\+\_\+sock, а также выполняет метод \mbox{\hyperlink{classAuth_aaf426d2dd315e8ec61b058d3c43ef5b4}{auth()}} 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em er} & объект класса исключений для установки параметра критичности \\
+\hline
+\mbox{\texttt{ in}}  & {\em sock} & значение сокета, полученное от модуля соединения \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAuth_a9fc0a8da27f70d6e97ffec9053f16f3c}\label{classAuth_a9fc0a8da27f70d6e97ffec9053f16f3c}} 
+\index{Auth@{Auth}!pw\_hash@{pw\_hash}}
+\index{pw\_hash@{pw\_hash}!Auth@{Auth}}
+\doxysubsubsection{\texorpdfstring{pw\_hash()}{pw\_hash()}}
+{\footnotesize\ttfamily std\+::string Auth\+::pw\+\_\+hash (\begin{DoxyParamCaption}\item[{std\+::string}]{salt,  }\item[{std\+::string}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Метод хэширования пароля 
+
+Пароль хэшируется с помощью ранее полученного значения SALT функциями бибилиотеки Crypto\+PP. Хэшированный пароль используется для авторизации пользователя 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em salt} & значение SALT \\
+\hline
+\mbox{\texttt{ in}}  & {\em password} & пароль для хэшированмя \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Хэшированный пароль 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAuth_abcb4f3a0ab5d500af3919e9bdbbca287}\label{classAuth_abcb4f3a0ab5d500af3919e9bdbbca287}} 
+\index{Auth@{Auth}!salt\_gen@{salt\_gen}}
+\index{salt\_gen@{salt\_gen}!Auth@{Auth}}
+\doxysubsubsection{\texorpdfstring{salt\_gen()}{salt\_gen()}}
+{\footnotesize\ttfamily std\+::string Auth\+::salt\+\_\+gen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Метод генерации значения SALT. 
+
+SALT генерируется на основе системного времени с помощью библиотеки Crypto\+PP. Входных параментров нет \begin{DoxyReturn}{Возвращает}
+Сгенерированное значение SALT в виде строки 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAuth_ab13c7b5e79377e4fccfc93737943e720}\label{classAuth_ab13c7b5e79377e4fccfc93737943e720}} 
+\index{Auth@{Auth}!string\_recv@{string\_recv}}
+\index{string\_recv@{string\_recv}!Auth@{Auth}}
+\doxysubsubsection{\texorpdfstring{string\_recv()}{string\_recv()}}
+{\footnotesize\ttfamily std\+::string Auth\+::string\+\_\+recv (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classError}{Error}} \&}]{er }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Метод для получения строки от клиента 
+
+Чтение строки реализовывается с помощью цикла удвоения буфера, чтобы поддерживать чтение сообщений любой длины. Используется для получения пароля и ID для аутентификации 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em er} & объект класса исключений для установки параметра критичности \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Строка, полученная, от клиента 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em system\+\_\+error,если} & произошла ошибка приема данных от клиента \\
+\hline
+\end{DoxyExceptions}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{auth_8h}{auth.\+h}}\item 
+\mbox{\hyperlink{auth_8cpp}{auth.\+cpp}}\end{DoxyCompactItemize}

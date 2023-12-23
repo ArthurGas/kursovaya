@@ -1,0 +1,133 @@
+\hypertarget{classInterface}{}\doxysection{Класс Interface}
+\label{classInterface}\index{Interface@{Interface}}
+
+
+Класс интерфейса взаимодействия с пользователем  
+
+
+
+
+{\ttfamily \#include $<$interface.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classInterface_a4406d74c75bdfe150bf72be1f1cda8b1}{Interface}} ()
+\begin{DoxyCompactList}\small\item\em Конструктор в котором обнуляются все значения атрибутов класса \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInterface_afdb28dc9cfa713471a1372545cedd798}{set\+\_\+options}} (int argscount, char $\ast$argvectors\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{classError}{Error}} \&er)
+\begin{DoxyCompactList}\small\item\em Метод установки опций интерфейса \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classInterface_ad64f4d0db83d715f1b0c267447eee9b8}{get\+\_\+basefile}} () const
+\begin{DoxyCompactList}\small\item\em \char`\"{}Геттер\char`\"{} для атрибута имени файла с базой пользователей \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classInterface_a2cb30ffd10811e1841b7541d106c2377}{get\+\_\+port}} () const
+\begin{DoxyCompactList}\small\item\em \char`\"{}Геттер\char`\"{} для атрибута порта \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classInterface_ad0a4f5cd6653c7a4950c9235be0228c0}{get\+\_\+logfile}} () const
+\begin{DoxyCompactList}\small\item\em \char`\"{}Геттер\char`\"{} для атрибута имени лог-\/файла \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInterface_a3810251309e0c2f282806214e01885bc}\label{classInterface_a3810251309e0c2f282806214e01885bc}} 
+uint32\+\_\+t \mbox{\hyperlink{classInterface_a3810251309e0c2f282806214e01885bc}{port}}
+\begin{DoxyCompactList}\small\item\em порт для соединения \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInterface_aef35b0c5adee0f9df1b97e0f3e435475}\label{classInterface_aef35b0c5adee0f9df1b97e0f3e435475}} 
+std\+::string \mbox{\hyperlink{classInterface_aef35b0c5adee0f9df1b97e0f3e435475}{base\+\_\+file}}
+\begin{DoxyCompactList}\small\item\em название файла, содержащего базу пользователей \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInterface_a0c191231ec901eb33d86ef107920d5a6}\label{classInterface_a0c191231ec901eb33d86ef107920d5a6}} 
+std\+::string \mbox{\hyperlink{classInterface_a0c191231ec901eb33d86ef107920d5a6}{log\+\_\+file}}
+\begin{DoxyCompactList}\small\item\em название файла, в который будут записываться сообщения об ошибках \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс интерфейса взаимодействия с пользователем 
+
+Конструтор обнуляет все значения. Интрефейс реализован для командной строки с помощью библиотеки boost\+\_\+program\+\_\+options \begin{DoxyWarning}{Предупреждения}
+Использование несуществующих опций может привести к аварийному останову 
+\end{DoxyWarning}
+
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{classInterface_a4406d74c75bdfe150bf72be1f1cda8b1}\label{classInterface_a4406d74c75bdfe150bf72be1f1cda8b1}} 
+\index{Interface@{Interface}!Interface@{Interface}}
+\index{Interface@{Interface}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{Interface()}{Interface()}}
+{\footnotesize\ttfamily Interface\+::\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор в котором обнуляются все значения атрибутов класса 
+
+Поддерживается создание конструктора без параметров. Внутри коструктора вызов методов не происходит 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classInterface_ad64f4d0db83d715f1b0c267447eee9b8}\label{classInterface_ad64f4d0db83d715f1b0c267447eee9b8}} 
+\index{Interface@{Interface}!get\_basefile@{get\_basefile}}
+\index{get\_basefile@{get\_basefile}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{get\_basefile()}{get\_basefile()}}
+{\footnotesize\ttfamily std\+::string Interface\+::get\+\_\+basefile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\char`\"{}Геттер\char`\"{} для атрибута имени файла с базой пользователей 
+
+Используется для передачи имени файла с базой пользователей модулю аутентификации для чтения этой базы, т.\+к. атрибут приватный \begin{DoxyReturn}{Возвращает}
+Имя файла, содержащего данные о пользователях 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInterface_ad0a4f5cd6653c7a4950c9235be0228c0}\label{classInterface_ad0a4f5cd6653c7a4950c9235be0228c0}} 
+\index{Interface@{Interface}!get\_logfile@{get\_logfile}}
+\index{get\_logfile@{get\_logfile}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{get\_logfile()}{get\_logfile()}}
+{\footnotesize\ttfamily std\+::string Interface\+::get\+\_\+logfile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\char`\"{}Геттер\char`\"{} для атрибута имени лог-\/файла 
+
+Используется для передачи имени лог-\/файла функции записи сообщений об ошиках, т.\+к атрибут приватный \begin{DoxyReturn}{Возвращает}
+Имя лог-\/файла 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInterface_a2cb30ffd10811e1841b7541d106c2377}\label{classInterface_a2cb30ffd10811e1841b7541d106c2377}} 
+\index{Interface@{Interface}!get\_port@{get\_port}}
+\index{get\_port@{get\_port}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{get\_port()}{get\_port()}}
+{\footnotesize\ttfamily uint32\+\_\+t Interface\+::get\+\_\+port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\char`\"{}Геттер\char`\"{} для атрибута порта 
+
+Используется для передачи порта классу сетевого взаимодействия для реализации сетевых функций, т.\+к. атрибут приватный \begin{DoxyReturn}{Возвращает}
+Порт, по которому будет происходить соединение 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInterface_afdb28dc9cfa713471a1372545cedd798}\label{classInterface_afdb28dc9cfa713471a1372545cedd798}} 
+\index{Interface@{Interface}!set\_options@{set\_options}}
+\index{set\_options@{set\_options}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{set\_options()}{set\_options()}}
+{\footnotesize\ttfamily bool Interface\+::set\+\_\+options (\begin{DoxyParamCaption}\item[{int}]{argscount,  }\item[{char $\ast$}]{argvectors\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{classError}{Error}} \&}]{er }\end{DoxyParamCaption})}
+
+
+
+Метод установки опций интерфейса 
+
+Реализация с помощью boost\+\_\+program\+\_\+options. Поддержка опций\+: \char`\"{}порт\char`\"{}, \char`\"{}файл базы пользователей\char`\"{} и \char`\"{}файл для записи ошибок\char`\"{}. Метод значений не возвращает 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em argscount} & количество агрументов командной строки, принимается из параметров функции main \\
+\hline
+\mbox{\texttt{ in}}  & {\em argvectors} & указатель на массив со значениями агрументов командной строки, также принимается из параметров функции main \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+False или true, означающее, нужно ля запускать программу(для вызова справки) 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Предупреждения}
+Использование несуществующих опций может привести к аварийному останову 
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em er} & объект класса исключений для установки параметра критичности \\
+\hline
+\end{DoxyParams}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_8h}{interface.\+h}}\item 
+\mbox{\hyperlink{interface_8cpp}{interface.\+cpp}}\end{DoxyCompactItemize}

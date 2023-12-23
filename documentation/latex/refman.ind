@@ -1,0 +1,113 @@
+\begin{theindex}
+
+  \item {$\sim$Connection}
+    \subitem {Connection}, \hyperpage{16}
+
+  \indexspace
+
+  \item {Auth}, \hyperpage{7}
+    \subitem {auth}, \hyperpage{8}
+    \subitem {base\_read}, \hyperpage{8}
+    \subitem {id\_check}, \hyperpage{9}
+    \subitem {operator()}, \hyperpage{9}
+    \subitem {pw\_hash}, \hyperpage{10}
+    \subitem {salt\_gen}, \hyperpage{10}
+    \subitem {string\_recv}, \hyperpage{10}
+  \item {auth}
+    \subitem {Auth}, \hyperpage{8}
+  \item {auth.cpp}, \hyperpage{23}
+  \item {auth.h}, \hyperpage{24}
+  \item {auth\_error}, \hyperpage{11}
+
+  \indexspace
+
+  \item {base\_read}
+    \subitem {Auth}, \hyperpage{8}
+
+  \indexspace
+
+  \item {calc}
+    \subitem {Calculation}, \hyperpage{13}
+  \item {calc.cpp}, \hyperpage{25}
+  \item {calc.h}, \hyperpage{26}
+  \item {Calculation}, \hyperpage{12}
+    \subitem {calc}, \hyperpage{13}
+    \subitem {Calculation}, \hyperpage{13}
+    \subitem {multip}, \hyperpage{14}
+    \subitem {operator()}, \hyperpage{14}
+    \subitem {overflow}, \hyperpage{14}
+  \item {connect}
+    \subitem {Connection}, \hyperpage{16}
+  \item {Connection}, \hyperpage{15}
+    \subitem {$\sim$Connection}, \hyperpage{16}
+    \subitem {connect}, \hyperpage{16}
+    \subitem {Connection}, \hyperpage{16}
+  \item {connection.cpp}, \hyperpage{27}
+  \item {connection.h}, \hyperpage{28}
+
+  \indexspace
+
+  \item {Error}, \hyperpage{17}
+    \subitem {write\_log}, \hyperpage{17}
+
+  \indexspace
+
+  \item {get\_basefile}
+    \subitem {Interface}, \hyperpage{19}
+  \item {get\_logfile}
+    \subitem {Interface}, \hyperpage{19}
+  \item {get\_port}
+    \subitem {Interface}, \hyperpage{19}
+
+  \indexspace
+
+  \item {id\_check}
+    \subitem {Auth}, \hyperpage{9}
+  \item {Interface}, \hyperpage{18}
+    \subitem {get\_basefile}, \hyperpage{19}
+    \subitem {get\_logfile}, \hyperpage{19}
+    \subitem {get\_port}, \hyperpage{19}
+    \subitem {Interface}, \hyperpage{19}
+    \subitem {set\_options}, \hyperpage{20}
+  \item {interface.cpp}, \hyperpage{29}
+  \item {interface.h}, \hyperpage{30}
+
+  \indexspace
+
+  \item {log\_error}, \hyperpage{21}
+
+  \indexspace
+
+  \item {multip}
+    \subitem {Calculation}, \hyperpage{14}
+
+  \indexspace
+
+  \item {operator()}
+    \subitem {Auth}, \hyperpage{9}
+    \subitem {Calculation}, \hyperpage{14}
+  \item {overflow}
+    \subitem {Calculation}, \hyperpage{14}
+
+  \indexspace
+
+  \item {pw\_hash}
+    \subitem {Auth}, \hyperpage{10}
+
+  \indexspace
+
+  \item {salt\_gen}
+    \subitem {Auth}, \hyperpage{10}
+  \item {server\_error.cpp}, \hyperpage{32}
+  \item {server\_error.h}, \hyperpage{33}
+  \item {set\_options}
+    \subitem {Interface}, \hyperpage{20}
+  \item {string\_recv}
+    \subitem {Auth}, \hyperpage{10}
+
+  \indexspace
+
+  \item {write\_log}
+    \subitem {Error}, \hyperpage{17}
+
+\end{theindex}

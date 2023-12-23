@@ -1,0 +1,142 @@
+\hypertarget{classCalculation}{}\doxysection{Класс Calculation}
+\label{classCalculation}\index{Calculation@{Calculation}}
+
+
+Класс вычислений для вектора чисел  
+
+
+
+
+{\ttfamily \#include $<$calc.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCalculation_ac643a00260d868a483b0967b0f81b9b6}{Calculation}} ()
+\begin{DoxyCompactList}\small\item\em Конструктор класса вычислений \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalculation_a7624f6b3f768021c5edf63ba03e2622b}{calc}} (\mbox{\hyperlink{classError}{Error}} \&er)
+\begin{DoxyCompactList}\small\item\em Метод реализации вычислений \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classCalculation_a5f44972f92d681174f6d32aa80da488d}{multip}} (std\+::vector$<$ float $>$ vector)
+\begin{DoxyCompactList}\small\item\em Метод премножения значений вектора \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalculation_a844daf8d7243d2373c1ada9a0c42e225}{operator()}} (int sock, \mbox{\hyperlink{classError}{Error}} \&er)
+\begin{DoxyCompactList}\small\item\em Перегрузка оператора () для класса вычислений \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classCalculation_a558add30ff0abd29263601bf600c7b90}{overflow}} (float res)
+\begin{DoxyCompactList}\small\item\em Метод проверки на переполнение \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCalculation_a9ff815f0e4ffb0df07a50e4c3934de1d}\label{classCalculation_a9ff815f0e4ffb0df07a50e4c3934de1d}} 
+uint32\+\_\+t \mbox{\hyperlink{classCalculation_a9ff815f0e4ffb0df07a50e4c3934de1d}{count}}
+\begin{DoxyCompactList}\small\item\em количество векторов \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCalculation_ae919573c6c0fdc8fe1dd8397e202067a}\label{classCalculation_ae919573c6c0fdc8fe1dd8397e202067a}} 
+uint32\+\_\+t \mbox{\hyperlink{classCalculation_ae919573c6c0fdc8fe1dd8397e202067a}{size}}
+\begin{DoxyCompactList}\small\item\em размер верктора \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCalculation_a6d528460b52367ac59c5694427e3eabf}\label{classCalculation_a6d528460b52367ac59c5694427e3eabf}} 
+int \mbox{\hyperlink{classCalculation_a6d528460b52367ac59c5694427e3eabf}{work\+\_\+sock}}
+\begin{DoxyCompactList}\small\item\em значения сокета \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс вычислений для вектора чисел 
+
+С помощью метов класса происходит получение данныых о количестве, размере и значений векторов чисел. После этого происходит вычисление произведения для каждого вектора \begin{DoxyWarning}{Предупреждения}
+Используется только после открытия соединения с клиентом 
+\end{DoxyWarning}
+
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{classCalculation_ac643a00260d868a483b0967b0f81b9b6}\label{classCalculation_ac643a00260d868a483b0967b0f81b9b6}} 
+\index{Calculation@{Calculation}!Calculation@{Calculation}}
+\index{Calculation@{Calculation}!Calculation@{Calculation}}
+\doxysubsubsection{\texorpdfstring{Calculation()}{Calculation()}}
+{\footnotesize\ttfamily Calculation\+::\+Calculation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор класса вычислений 
+
+Присваивает -\/1 значению сокета, полученного от класса соединения 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classCalculation_a7624f6b3f768021c5edf63ba03e2622b}\label{classCalculation_a7624f6b3f768021c5edf63ba03e2622b}} 
+\index{Calculation@{Calculation}!calc@{calc}}
+\index{calc@{calc}!Calculation@{Calculation}}
+\doxysubsubsection{\texorpdfstring{calc()}{calc()}}
+{\footnotesize\ttfamily void Calculation\+::calc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classError}{Error}} \&}]{er }\end{DoxyParamCaption})}
+
+
+
+Метод реализации вычислений 
+
+Внутри метода с помощью сетевых функций происходит получение количества, размера и значений векторов, используются функции c \mbox{\hyperlink{classCalculation_a7624f6b3f768021c5edf63ba03e2622b}{calc()}} и \mbox{\hyperlink{classCalculation_a558add30ff0abd29263601bf600c7b90}{overflow()}}, чтобы получить результат 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em er} & объект класса исключений для установки параметра критичности \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Предупреждения}
+Работает только при открытом соединении 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classCalculation_a5f44972f92d681174f6d32aa80da488d}\label{classCalculation_a5f44972f92d681174f6d32aa80da488d}} 
+\index{Calculation@{Calculation}!multip@{multip}}
+\index{multip@{multip}!Calculation@{Calculation}}
+\doxysubsubsection{\texorpdfstring{multip()}{multip()}}
+{\footnotesize\ttfamily float Calculation\+::multip (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{vector }\end{DoxyParamCaption})}
+
+
+
+Метод премножения значений вектора 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em vector} & вектор значений, которые будут перемножаться \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результат переменожения чисел, из которых состоит вектор 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em system\+\_\+error,если} & произолша обшибка получения данных \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classCalculation_a844daf8d7243d2373c1ada9a0c42e225}\label{classCalculation_a844daf8d7243d2373c1ada9a0c42e225}} 
+\index{Calculation@{Calculation}!operator()@{operator()}}
+\index{operator()@{operator()}!Calculation@{Calculation}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily void Calculation\+::operator() (\begin{DoxyParamCaption}\item[{int}]{sock,  }\item[{\mbox{\hyperlink{classError}{Error}} \&}]{er }\end{DoxyParamCaption})}
+
+
+
+Перегрузка оператора () для класса вычислений 
+
+Является \char`\"{}сеттером\char`\"{} для атрибута work\+\_\+sock, а также выполняет метод \mbox{\hyperlink{classCalculation_a7624f6b3f768021c5edf63ba03e2622b}{calc()}} 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em er} & объект класса исключений для установки параметра критичности \\
+\hline
+ & {\em sock} & значение сокета, полученное от модуля соединения \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCalculation_a558add30ff0abd29263601bf600c7b90}\label{classCalculation_a558add30ff0abd29263601bf600c7b90}} 
+\index{Calculation@{Calculation}!overflow@{overflow}}
+\index{overflow@{overflow}!Calculation@{Calculation}}
+\doxysubsubsection{\texorpdfstring{overflow()}{overflow()}}
+{\footnotesize\ttfamily float Calculation\+::overflow (\begin{DoxyParamCaption}\item[{float}]{res }\end{DoxyParamCaption})}
+
+
+
+Метод проверки на переполнение 
+
+Проверяет на переполнение результат вычислений при переполнении использует переменную из библиотеки \char`\"{}float.\+h\char`\"{} FLT\+\_\+\+MAX(переполнение вниз\+: -\/FLT\+\_\+\+MAX, вверх\+: FLT\+\_\+\+MAX). При отсутсвиии переполнения возвращает значение из параметра 
+\begin{DoxyParams}{Аргументы}
+{\em res} & Числи для проверки на переполнение \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+При переполнении FLT\+\_\+\+MAX или -\/FLT\+\_\+\+MAX, без переполнения входной параметр 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{calc_8h}{calc.\+h}}\item 
+\mbox{\hyperlink{calc_8cpp}{calc.\+cpp}}\end{DoxyCompactItemize}

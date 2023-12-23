@@ -1,0 +1,96 @@
+\hypertarget{classConnection}{}\doxysection{Класс Connection}
+\label{classConnection}\index{Connection@{Connection}}
+
+
+Класс реализации соединения между клиентом и сервером  
+
+
+
+
+{\ttfamily \#include $<$connection.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classConnection_aa6bc7827a0eaff9f08bc6158d84d3556}{Connection}} (unsigned short port)
+\begin{DoxyCompactList}\small\item\em Конструктор класса соединения \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classConnection_a2e4352edf667bea83001569e9da8a24d}{$\sim$\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Деструктор для класса соединения \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConnection_ac41bcf96946a825058e81730132cc75f}{connect}} (\mbox{\hyperlink{classCalculation}{Calculation}} \&clc, \mbox{\hyperlink{classAuth}{Auth}} \&ath, \mbox{\hyperlink{classError}{Error}} \&er)
+\begin{DoxyCompactList}\small\item\em Метод для установки соединения \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConnection_acccd0099e1f8360fa0a0b04d7a5abe93}\label{classConnection_acccd0099e1f8360fa0a0b04d7a5abe93}} 
+int \mbox{\hyperlink{classConnection_acccd0099e1f8360fa0a0b04d7a5abe93}{sock}}
+\begin{DoxyCompactList}\small\item\em переменная сокета \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConnection_a03150da10e040df6fe5de1ff44dad140}\label{classConnection_a03150da10e040df6fe5de1ff44dad140}} 
+std\+::unique\+\_\+ptr$<$ sockaddr\+\_\+in $>$ \mbox{\hyperlink{classConnection_a03150da10e040df6fe5de1ff44dad140}{serv\+\_\+addr}}
+\begin{DoxyCompactList}\small\item\em умный указатель на адресную структуру сервера \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConnection_a5ef70a8c8dcb395fc433e651b476ba54}\label{classConnection_a5ef70a8c8dcb395fc433e651b476ba54}} 
+std\+::unique\+\_\+ptr$<$ sockaddr\+\_\+in $>$ \mbox{\hyperlink{classConnection_a5ef70a8c8dcb395fc433e651b476ba54}{client\+\_\+addr}}
+\begin{DoxyCompactList}\small\item\em умный указатель на адресную структуру клиента \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConnection_a8ad8d0dc6c9b46a8dbfd61e8894d7807}\label{classConnection_a8ad8d0dc6c9b46a8dbfd61e8894d7807}} 
+int \mbox{\hyperlink{classConnection_a8ad8d0dc6c9b46a8dbfd61e8894d7807}{queue\+\_\+len}} =5
+\begin{DoxyCompactList}\small\item\em длина очереди ожидания \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс реализации соединения между клиентом и сервером 
+
+В классе создается сокет для адреса сервера, производится привязка к этому адресу. После этого сервер переходит в режим ожидания соединения 
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{classConnection_aa6bc7827a0eaff9f08bc6158d84d3556}\label{classConnection_aa6bc7827a0eaff9f08bc6158d84d3556}} 
+\index{Connection@{Connection}!Connection@{Connection}}
+\index{Connection@{Connection}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{Connection()}{Connection()}}
+{\footnotesize\ttfamily Connection\+::\+Connection (\begin{DoxyParamCaption}\item[{unsigned short}]{port }\end{DoxyParamCaption})}
+
+
+
+Конструктор класса соединения 
+
+В конструкторе создается сокет для сервера, происходит настройка сокета(возможность повтороного использования и время ожидания соединения) и происходит привязка сокета к адресу сервера 
+\begin{DoxyParams}{Аргументы}
+{\em port} & порт по, которому будет происходить соединение \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classConnection_a2e4352edf667bea83001569e9da8a24d}\label{classConnection_a2e4352edf667bea83001569e9da8a24d}} 
+\index{Connection@{Connection}!````~Connection@{$\sim$Connection}}
+\index{````~Connection@{$\sim$Connection}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{$\sim$Connection()}{~Connection()}}
+{\footnotesize\ttfamily Connection\+::$\sim$\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Деструктор для класса соединения 
+
+Внутри деструктора закрывается сокет для сервера 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classConnection_ac41bcf96946a825058e81730132cc75f}\label{classConnection_ac41bcf96946a825058e81730132cc75f}} 
+\index{Connection@{Connection}!connect@{connect}}
+\index{connect@{connect}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily void Connection\+::connect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCalculation}{Calculation}} \&}]{clc,  }\item[{\mbox{\hyperlink{classAuth}{Auth}} \&}]{ath,  }\item[{\mbox{\hyperlink{classError}{Error}} \&}]{er }\end{DoxyParamCaption})}
+
+
+
+Метод для установки соединения 
+
+Внутри метода с помощью методов сетевого взаимодейтсвия запускается бесконечный цикл ожидания соединения. После установки соединения с помощью перегруженного оператора () данные о сокете от метода accept передаются классам аутентификации и вычислений для реализации дальнейшей работы программы. Метод не возвраащет значений 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em clc} & объект класса вычислений \\
+\hline
+\mbox{\texttt{ in}}  & {\em ath} & объект класса аутентификации \\
+\hline
+\mbox{\texttt{ in}}  & {\em er} & объект класса исключений для установки параметра критичности \\
+\hline
+\end{DoxyParams}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{connection_8h}{connection.\+h}}\item 
+\mbox{\hyperlink{connection_8cpp}{connection.\+cpp}}\end{DoxyCompactItemize}

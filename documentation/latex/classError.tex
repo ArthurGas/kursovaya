@@ -1,0 +1,59 @@
+\hypertarget{classError}{}\doxysection{Класс Error}
+\label{classError}\index{Error@{Error}}
+
+
+Класс исключений  
+
+
+
+
+{\ttfamily \#include $<$server\+\_\+error.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classError_a08b31113158159e81aaddc6e463b7ca8}{write\+\_\+log}} (std\+::string file\+\_\+name, std\+::string e\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Метод записи сообщений об ошиках в лог \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classError_a31f6c6b7c2d186f2865879065c7a3ca6}\label{classError_a31f6c6b7c2d186f2865879065c7a3ca6}} 
+void \mbox{\hyperlink{classError_a31f6c6b7c2d186f2865879065c7a3ca6}{critic\+\_\+set}} ()
+\begin{DoxyCompactList}\small\item\em метод установки параметра критичности для ошибки \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classError_a90e1d94412960173c0da72a18e86cbf3}\label{classError_a90e1d94412960173c0da72a18e86cbf3}} 
+bool \mbox{\hyperlink{classError_a90e1d94412960173c0da72a18e86cbf3}{iscritical}} =false
+\begin{DoxyCompactList}\small\item\em метка, чтобы показать критичность ошибки \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс исключений 
+
+Класс организует запись ошибок программы в лог-\/файл 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classError_a08b31113158159e81aaddc6e463b7ca8}\label{classError_a08b31113158159e81aaddc6e463b7ca8}} 
+\index{Error@{Error}!write\_log@{write\_log}}
+\index{write\_log@{write\_log}!Error@{Error}}
+\doxysubsubsection{\texorpdfstring{write\_log()}{write\_log()}}
+{\footnotesize\ttfamily std\+::string Error\+::write\+\_\+log (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+\_\+name,  }\item[{std\+::string}]{e\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Метод записи сообщений об ошиках в лог 
+
+Сообщение об исключении выводится в формате\+: \char`\"{}текущее системное время -\/ текст исключения\char`\"{} 
+\begin{DoxyParams}{Аргументы}
+{\em file\+\_\+name} & название лог-\/файла, в который будут записываться сообщения об ошибках, в случае его отсутсвия он будет создан \\
+\hline
+{\em e\+\_\+str} & строка с описанием исключения, которая была задана в кострукторе исключения в другом модуле \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Строка формата \char`\"{}текущее системное время -\/ текст исключения\char`\"{} 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{server__error_8h}{server\+\_\+error.\+h}}\item 
+\mbox{\hyperlink{server__error_8cpp}{server\+\_\+error.\+cpp}}\end{DoxyCompactItemize}
