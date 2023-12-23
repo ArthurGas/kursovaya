@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Calculator Server: Класс Auth</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Calculator Server
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Сервер для вычисления произведения вектора типа float. Вычисления проводятся только только для авторизованных клиентов, перед вычислениями производтится авторизация</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pri-methods">Закрытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="classAuth-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс Auth</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс аутентификации пользователей  
+ <a href="classAuth.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="auth_8h_source.html">auth.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:abcb4f3a0ab5d500af3919e9bdbbca287"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuth.html#abcb4f3a0ab5d500af3919e9bdbbca287">salt_gen</a> ()</td></tr>
+<tr class="memdesc:abcb4f3a0ab5d500af3919e9bdbbca287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод генерации значения SALT.  <a href="classAuth.html#abcb4f3a0ab5d500af3919e9bdbbca287">Подробнее...</a><br /></td></tr>
+<tr class="separator:abcb4f3a0ab5d500af3919e9bdbbca287"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fc0a8da27f70d6e97ffec9053f16f3c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuth.html#a9fc0a8da27f70d6e97ffec9053f16f3c">pw_hash</a> (std::string salt, std::string password)</td></tr>
+<tr class="memdesc:a9fc0a8da27f70d6e97ffec9053f16f3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод хэширования пароля  <a href="classAuth.html#a9fc0a8da27f70d6e97ffec9053f16f3c">Подробнее...</a><br /></td></tr>
+<tr class="separator:a9fc0a8da27f70d6e97ffec9053f16f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a263887851eabf19850e07255dc7e6c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuth.html#a5a263887851eabf19850e07255dc7e6c">id_check</a> (std::string id, std::map&lt; std::string, std::string &gt; base_c)</td></tr>
+<tr class="memdesc:a5a263887851eabf19850e07255dc7e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод проверки наличия в базе пользователей указанного ID.  <a href="classAuth.html#a5a263887851eabf19850e07255dc7e6c">Подробнее...</a><br /></td></tr>
+<tr class="separator:a5a263887851eabf19850e07255dc7e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab263274f89b53a92633aab95a5068397"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuth.html#ab263274f89b53a92633aab95a5068397">operator()</a> (int sock, <a class="el" href="classError.html">Error</a> &amp;er)</td></tr>
+<tr class="memdesc:ab263274f89b53a92633aab95a5068397"><td class="mdescLeft">&#160;</td><td class="mdescRight">Перегрузка оператора () для класса аутентификации  <a href="classAuth.html#ab263274f89b53a92633aab95a5068397">Подробнее...</a><br /></td></tr>
+<tr class="separator:ab263274f89b53a92633aab95a5068397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf426d2dd315e8ec61b058d3c43ef5b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuth.html#aaf426d2dd315e8ec61b058d3c43ef5b4">auth</a> (<a class="el" href="classError.html">Error</a> &amp;er)</td></tr>
+<tr class="memdesc:aaf426d2dd315e8ec61b058d3c43ef5b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод, проводящий аутентификацию пользователя  <a href="classAuth.html#aaf426d2dd315e8ec61b058d3c43ef5b4">Подробнее...</a><br /></td></tr>
+<tr class="separator:aaf426d2dd315e8ec61b058d3c43ef5b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab13c7b5e79377e4fccfc93737943e720"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuth.html#ab13c7b5e79377e4fccfc93737943e720">string_recv</a> (<a class="el" href="classError.html">Error</a> &amp;er)</td></tr>
+<tr class="memdesc:ab13c7b5e79377e4fccfc93737943e720"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод для получения строки от клиента  <a href="classAuth.html#ab13c7b5e79377e4fccfc93737943e720">Подробнее...</a><br /></td></tr>
+<tr class="separator:ab13c7b5e79377e4fccfc93737943e720"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3615ca41d9feab30a366acdccec52ee4"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuth.html#a3615ca41d9feab30a366acdccec52ee4">base_read</a> (std::string file_name,)</td></tr>
+<tr class="memdesc:a3615ca41d9feab30a366acdccec52ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод чтения базы пользователей  <a href="classAuth.html#a3615ca41d9feab30a366acdccec52ee4">Подробнее...</a><br /></td></tr>
+<tr class="separator:a3615ca41d9feab30a366acdccec52ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a1760bffa1bbcdcef40dd1418d8809977"><td class="memItemLeft" align="right" valign="top"><a id="a1760bffa1bbcdcef40dd1418d8809977"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuth.html#a1760bffa1bbcdcef40dd1418d8809977">SALT</a></td></tr>
+<tr class="memdesc:a1760bffa1bbcdcef40dd1418d8809977"><td class="mdescLeft">&#160;</td><td class="mdescRight">значение SALT для хэширования пароля <br /></td></tr>
+<tr class="separator:a1760bffa1bbcdcef40dd1418d8809977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a332dd8f9f1d0a3a7a006a16ef7bc0018"><td class="memItemLeft" align="right" valign="top"><a id="a332dd8f9f1d0a3a7a006a16ef7bc0018"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuth.html#a332dd8f9f1d0a3a7a006a16ef7bc0018">work_sock</a></td></tr>
+<tr class="memdesc:a332dd8f9f1d0a3a7a006a16ef7bc0018"><td class="mdescLeft">&#160;</td><td class="mdescRight">переменная сокета <br /></td></tr>
+<tr class="separator:a332dd8f9f1d0a3a7a006a16ef7bc0018"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dbabd0eb2549704cb8808fbb4a91dfd"><td class="memItemLeft" align="right" valign="top"><a id="a5dbabd0eb2549704cb8808fbb4a91dfd"></a>
+std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuth.html#a5dbabd0eb2549704cb8808fbb4a91dfd">base_cont</a></td></tr>
+<tr class="memdesc:a5dbabd0eb2549704cb8808fbb4a91dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">ассоциативный массив id - пароль <br /></td></tr>
+<tr class="separator:a5dbabd0eb2549704cb8808fbb4a91dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс аутентификации пользователей </p>
+<p>В классе используются функции для сетевого обмена данными. В конструкторе сокету присваивается значение -1, чтобы исключить использование сокета который не был получен от другого класса </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="aaf426d2dd315e8ec61b058d3c43ef5b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf426d2dd315e8ec61b058d3c43ef5b4">&#9670;&nbsp;</a></span>auth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Auth::auth </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classError.html">Error</a> &amp;&#160;</td>
+          <td class="paramname"><em>er</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Метод, проводящий аутентификацию пользователя </p>
+<p>Выполняет такие методы класса <a class="el" href="classAuth.html#a5a263887851eabf19850e07255dc7e6c" title="Метод проверки наличия в базе пользователей указанного ID.">id_check()</a>, <a class="el" href="classAuth.html#abcb4f3a0ab5d500af3919e9bdbbca287" title="Метод генерации значения SALT.">salt_gen()</a>, <a class="el" href="classAuth.html#a9fc0a8da27f70d6e97ffec9053f16f3c" title="Метод хэширования пароля">pw_hash()</a> и pw_check(), а также принимает с помощью сетевых функций id и хэшированный пароль от пользователя, сам метод после идентификации отправляет клиету значение SALT. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">er</td><td>объект класса исключений для установки параметра критичности </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Выполняется только с открытым соедиением </dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">system_error,если</td><td>произошла ошибка в сетевом взаимодействии </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3615ca41d9feab30a366acdccec52ee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3615ca41d9feab30a366acdccec52ee4">&#9670;&nbsp;</a></span>base_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, std::string &gt; Auth::base_read </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>file_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Метод чтения базы пользователей </p>
+<p>Данные из файла с информацией о пользователях читаются в ассоциативный массив "ID-пароль" для дальнейшего использования </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">file_name</td><td>имя файла с базой пользователей </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Ассоциативный массив "ID-пароль" </dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">system_error,если</td><td>произошла ошибка открытия файла </td></tr>
+    <tr><td class="paramname">length_error,если</td><td>файл базы пустой </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5a263887851eabf19850e07255dc7e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a263887851eabf19850e07255dc7e6c">&#9670;&nbsp;</a></span>id_check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Auth::id_check </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; std::string, std::string &gt;&#160;</td>
+          <td class="paramname"><em>base_c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Метод проверки наличия в базе пользователей указанного ID. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>ID, введенный клиентом </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">base_c</td><td>контейнер для хранения базы пользователей </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classauth__error.html" title="Пользовательский класс исключений">auth_error</a>,если</td><td>идентификация не удалась </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Значение true, если идентификация прошла успешно </dd></dl>
+
+</div>
+</div>
+<a id="ab263274f89b53a92633aab95a5068397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab263274f89b53a92633aab95a5068397">&#9670;&nbsp;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Auth::operator() </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sock</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classError.html">Error</a> &amp;&#160;</td>
+          <td class="paramname"><em>er</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Перегрузка оператора () для класса аутентификации </p>
+<p>Является "сеттером" для атрибута work_sock, а также выполняет метод <a class="el" href="classAuth.html#aaf426d2dd315e8ec61b058d3c43ef5b4" title="Метод, проводящий аутентификацию пользователя">auth()</a> </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">er</td><td>объект класса исключений для установки параметра критичности </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sock</td><td>значение сокета, полученное от модуля соединения </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9fc0a8da27f70d6e97ffec9053f16f3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fc0a8da27f70d6e97ffec9053f16f3c">&#9670;&nbsp;</a></span>pw_hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Auth::pw_hash </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>salt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>password</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Метод хэширования пароля </p>
+<p>Пароль хэшируется с помощью ранее полученного значения SALT функциями бибилиотеки CryptoPP. Хэшированный пароль используется для авторизации пользователя </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">salt</td><td>значение SALT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">password</td><td>пароль для хэшированмя </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Хэшированный пароль </dd></dl>
+
+</div>
+</div>
+<a id="abcb4f3a0ab5d500af3919e9bdbbca287"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcb4f3a0ab5d500af3919e9bdbbca287">&#9670;&nbsp;</a></span>salt_gen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Auth::salt_gen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Метод генерации значения SALT. </p>
+<p>SALT генерируется на основе системного времени с помощью библиотеки CryptoPP. Входных параментров нет </p><dl class="section return"><dt>Возвращает</dt><dd>Сгенерированное значение SALT в виде строки </dd></dl>
+
+</div>
+</div>
+<a id="ab13c7b5e79377e4fccfc93737943e720"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab13c7b5e79377e4fccfc93737943e720">&#9670;&nbsp;</a></span>string_recv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Auth::string_recv </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classError.html">Error</a> &amp;&#160;</td>
+          <td class="paramname"><em>er</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Метод для получения строки от клиента </p>
+<p>Чтение строки реализовывается с помощью цикла удвоения буфера, чтобы поддерживать чтение сообщений любой длины. Используется для получения пароля и ID для аутентификации </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">er</td><td>объект класса исключений для установки параметра критичности </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Строка, полученная, от клиента </dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">system_error,если</td><td>произошла ошибка приема данных от клиента </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li><a class="el" href="auth_8h_source.html">auth.h</a></li>
+<li><a class="el" href="auth_8cpp.html">auth.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

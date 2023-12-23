@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Calculator Server: Файл auth.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Calculator Server
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Сервер для вычисления произведения вектора типа float. Вычисления проводятся только только для авторизованных клиентов, перед вычислениями производтится авторизация</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#define-members">Макросы</a>  </div>
+  <div class="headertitle">
+<div class="title">Файл auth.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Заголовочный файл для модуля аутентификации курсовой работы  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;random&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;sys/socket.h&gt;</code><br />
+<code>#include &lt;sys/ioctl.h&gt;</code><br />
+<code>#include &lt;cryptopp/cryptlib.h&gt;</code><br />
+<code>#include &lt;cryptopp/hex.h&gt;</code><br />
+<code>#include &lt;cryptopp/files.h&gt;</code><br />
+<code>#include &lt;cryptopp/md5.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Граф включаемых заголовочных файлов для auth.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="auth_8h__incl.png" border="0" usemap="#aauth_8h" alt=""/></div>
+<map name="aauth_8h" id="aauth_8h">
+<area shape="rect" title="Заголовочный файл для модуля аутентификации курсовой работы" alt="" coords="542,5,605,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,85,107"/>
+<area shape="rect" title=" " alt="" coords="109,80,187,107"/>
+<area shape="rect" title=" " alt="" coords="211,80,283,107"/>
+<area shape="rect" title=" " alt="" coords="307,80,357,107"/>
+<area shape="rect" title=" " alt="" coords="382,80,455,107"/>
+<area shape="rect" title=" " alt="" coords="480,80,555,107"/>
+<area shape="rect" title=" " alt="" coords="579,80,682,107"/>
+<area shape="rect" title=" " alt="" coords="707,80,795,107"/>
+<area shape="rect" title=" " alt="" coords="819,80,963,107"/>
+<area shape="rect" title=" " alt="" coords="987,80,1106,107"/>
+<area shape="rect" title=" " alt="" coords="1131,80,1253,107"/>
+<area shape="rect" title=" " alt="" coords="1278,80,1402,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Граф файлов, в которые включается этот файл:</div>
+<div class="dyncontent">
+<div class="center"><img src="auth_8h__dep__incl.png" border="0" usemap="#aauth_8hdep" alt=""/></div>
+<map name="aauth_8hdep" id="aauth_8hdep">
+<area shape="rect" title="Заголовочный файл для модуля аутентификации курсовой работы" alt="" coords="71,5,133,32"/>
+<area shape="rect" href="auth_8cpp.html" title="CPP&#45;файл модуля аутентификации курсовой работы" alt="" coords="5,80,84,107"/>
+<area shape="rect" href="connection_8h.html" title="Заголовочный файл для модуля моединения курсовой работы" alt="" coords="108,80,213,107"/>
+<area shape="rect" href="connection_8cpp.html" title="CPP&#45;файл модуля соединения курсовой работы" alt="" coords="101,155,221,181"/>
+</map>
+</div>
+</div>
+<p><a href="auth_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuth.html">Auth</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс аутентификации пользователей  <a href="classAuth.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:a60054cd46e0dc2ed04249519a5291cda"><td class="memItemLeft" align="right" valign="top"><a id="a60054cd46e0dc2ed04249519a5291cda"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CRYPTOPP_ENABLE_NAMESPACE_WEAK</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a60054cd46e0dc2ed04249519a5291cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Заголовочный файл для модуля аутентификации курсовой работы </p>
+<dl class="section author"><dt>Автор</dt><dd>Гастиев Артур </dd></dl>
+<dl class="section version"><dt>Версия</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Дата</dt><dd>16.12.2023 </dd></dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Студенческая работа </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
