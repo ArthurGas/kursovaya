@@ -1,0 +1,6 @@
+<map id="auth.h" name="auth.h">
+<area shape="rect" id="node1" title="Заголовочный файл для модуля аутентификации курсовой работы" alt="" coords="71,5,133,32"/>
+<area shape="rect" id="node2" href="$auth_8cpp.html" title="CPP&#45;файл модуля аутентификации курсовой работы" alt="" coords="5,80,84,107"/>
+<area shape="rect" id="node3" href="$connection_8h.html" title="Заголовочный файл для модуля моединения курсовой работы" alt="" coords="108,80,213,107"/>
+<area shape="rect" id="node4" href="$connection_8cpp.html" title="CPP&#45;файл модуля соединения курсовой работы" alt="" coords="101,155,221,181"/>
+</map>
